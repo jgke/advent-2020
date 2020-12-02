@@ -1,5 +1,5 @@
-mod day_1;
+mod day_2;
 
 fn main() {
-    day_1::one().unwrap();
+    day_2::two().unwrap();
 }
