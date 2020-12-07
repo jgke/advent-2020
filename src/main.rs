@@ -1,8 +1,8 @@
 mod grid;
 mod utils;
 
-mod day_6;
+mod day_7;
 
 fn main() {
-    day_6::six().unwrap();
+    day_7::seven().unwrap();
 }
