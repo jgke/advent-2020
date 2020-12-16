@@ -19,7 +19,7 @@ fn rot(n: i32) -> Instruction {
         90 => Instruction::Rotate((0, -1), (1, 0)),
         180 => Instruction::Rotate((-1, 0), (0, -1)),
         270 => Instruction::Rotate((0, 1), (-1, 0)),
-        _ => unreachable!()
+        _ => unreachable!(),
     }
 }
 
@@ -35,9 +35,9 @@ impl Instruction {
             'F' => Instruction::Forward(n),
 
             'L' => rot(n),
-            'R' => rot((-n + 360)%360),
+            'R' => rot((-n + 360) % 360),
 
-            _ => unreachable!()
+            _ => unreachable!(),
         }
     }
 }
@@ -100,7 +100,10 @@ fn part_2(lines: &[Instruction]) -> (i32, i32) {
 pub fn twelve() -> Result<(), std::io::Error> {
     let file = File::open("12_input")?;
     let reader = BufReader::new(file);
-    let lines: Vec<Instruction> = reader.lines().map(|s| Instruction::new(&s.unwrap())).collect();
+    let lines: Vec<Instruction> = reader
+        .lines()
+        .map(|s| Instruction::new(&s.unwrap()))
+        .collect();
 
     part_1(&lines);
     part_2(&lines);
@@ -114,7 +117,10 @@ mod tests {
 
     #[test]
     fn test() {
-        let lines: Vec<Instruction> = ["F10", "N3", "F7", "R90", "F11" ].iter().map(|s| Instruction::new(s)).collect();
+        let lines: Vec<Instruction> = ["F10", "N3", "F7", "R90", "F11"]
+            .iter()
+            .map(|s| Instruction::new(s))
+            .collect();
 
         assert_eq!((17, -8), part_1(&lines));
         assert_eq!((214, -72), part_2(&lines));
